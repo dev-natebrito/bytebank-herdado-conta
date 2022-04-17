@@ -11,6 +11,6 @@ public class ContaCorrente extends Conta implements Tributavel {
 
   @Override
   public double getValorImposto() {
-    return super.getSaldo() * 0.01;
+    return super.getSaldo() * PorcentagemTributo.NORMAL.getValor();
   }
 }
