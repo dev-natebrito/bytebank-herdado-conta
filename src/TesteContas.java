@@ -6,7 +6,16 @@ public class TesteContas {
     ContaPoupanca cp = new ContaPoupanca(222, 222);
     cp.deposita(200.0);
 
-    cc.transfere(10, cp);
+    try {
+      cc.transfere(10, cp);
+    } catch (SaldoInsuficienteException e) {
+      System.out.println(e.getMessage());
+    }
+    try {
+      cc.saca(300);
+    } catch (SaldoInsuficienteException e) {
+      System.out.println(e.getMessage());
+    }
     System.out.printf("CC saldo: %s, CP saldo: %s%n", cc.getSaldo(), cp.getSaldo());
   }
 }
